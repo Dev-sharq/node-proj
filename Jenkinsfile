@@ -37,9 +37,9 @@ pipeline {
             steps {
                 sh """
                 aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ${AWS_REGION}
-                sed -i 's|image: .*|image: ${IMAGE_NAME}:${IMAGE_TAG}|' k8s/deployment.yaml
-                kubectl apply -f k8s/deployment.yaml
-                kubectl apply -f k8s/service.yaml
+                sed -i 's|image: .*|image: ${IMAGE_NAME}:${IMAGE_TAG}|' deployment.yaml
+                kubectl apply -f deployment.yaml
+                kubectl apply -f service.yaml
                 kubectl rollout status deployment/devops-node-app
                 """
             }
