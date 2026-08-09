@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDS = credentials('docker-hub-pass')
+        DOCKERHUB_CREDS = credentials('dockerhub-creds')
         IMAGE_NAME       = 'sharqq/devops-node-app'
         IMAGE_TAG        = "${BUILD_NUMBER}"
         CLUSTER_NAME     = 'devops-project'
